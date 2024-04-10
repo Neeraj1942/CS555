@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lie Detector App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lie Detector App</h1>
+    <form id="lie-form">
+        <label for="statement">Enter a statement:</label>
+        <input type="text" id="statement" name="statement">
+        <button type="submit">Detect Lie</button>
+    </form>
+    <div id="result"></div>
+    <script>
+        document.getElementById('lie-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const statement = document.getElementById('statement').value;
+            fetch('/api/detect_lie?statement=' + statement)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerHTML = data.result;
+                });
+        });
+    </script>
+</body>
+</html>
