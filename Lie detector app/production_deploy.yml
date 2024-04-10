@@ -1,0 +1,27 @@
+# production_deploy.yml
+- hosts: production
+  tasks:
+    - name: Install required packages
+      apt:
+        name:
+          - python3
+          - nginx
+        state: present
+
+    - name: Copy app files
+      copy:
+        src: app/
+        dest: /var/www/lie-detector-app
+
+    - name: Configure Nginx
+      template:
+        src: nginx.conf.j2
+        dest: /etc/nginx/sites-available/lie-detector-app
+      notify:
+        - restart nginx
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted

@@ -1,0 +1,33 @@
+# user_manual.md
+"""
+Lie Detector App User Manual
+
+1. Enter a statement in the input field.
+2. Click the "Detect Lie" button.
+3. The app will analyze the statement and display the result.
+
+If the statement is detected as a lie, the app will display "Lie".
+If the statement is detected as truthful, the app will display "Truth".
+"""
+
+# api_docs.md
+"""
+Lie Detector App API Documentation
+
+Endpoint: /api/detect_lie
+Method: GET
+Parameters:
+    - statement (string): The statement to be analyzed.
+Response:
+    - result (string): The result of the lie detection analysis ("Lie" or "Truth").
+"""
+
+# release_notes.md
+"""
+Lie Detector App Release Notes
+
+Version 1.0.0 (2023-04-10):
+- Initial release of the Lie Detector App.
+- Implemented basic lie detection algorithm.
+- Deployed the app to the production environment.
+"""
