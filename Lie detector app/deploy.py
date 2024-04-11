@@ -2,13 +2,13 @@
 import os
 import subprocess
 
-# Build the app
+# Building the application
 subprocess.run(["python", "build.py"])
 
-# Create a release
+# Creating a release
 release_version = "1.0.0"
 subprocess.run(["git", "tag", release_version])
 subprocess.run(["git", "push", "origin", release_version])
 
-# Deploy the app to production
+# Deploying the app to the production
 subprocess.run(["ansible-playbook", "production_deploy.yml"])
